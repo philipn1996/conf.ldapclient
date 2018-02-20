@@ -1,0 +1,21 @@
+---
+- name: Install packets
+  yum: name={{ item }} state=present
+  with_items:
+    - sssd-ldap
+
+# Name Service Switch aggregiert verschiedene Datenquellen (LDAP, /etc/passwd)
+- name: setup nsswitch.conf
+  template:
+    src: nsswitch.conf.j2
+    dest: /etc/nsswitch.conf
+    owner: root
+    group: root
+    mode: 0644
+- name: setup sssd.conf
+  template:
+    src: sssd.conf.j2
+    dest: /etc/sssd.conf.j2
+    owner: root
+    group: root
+    mode: 0600

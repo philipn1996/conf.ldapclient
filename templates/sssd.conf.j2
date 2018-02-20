@@ -1,0 +1,28 @@
+# {{ ansible_managed }}
+# The System Security Services Daemon provides some advantages over direct ldap-authentication.
+
+[sssd]
+services = nss, pam
+config_file_version = 2
+domains = default
+
+[nss]
+
+[pam]
+pam_pwd_expiration_warning = 30
+
+[domain/default]
+enumerate = true
+
+auth_provider = ldap
+id_provider = ldap
+chpass_provider = ldap
+
+ldap_uri = {% for item in ldap-server %} {{item}}, {% endfor %}
+ldap_search_base = {% ldap_search_base %}
+ldap_id_use_start_tls = false
+
+pwd_expiration_warning = 30
+{% if shadow %}
+ldap_pwd_policy = shadow
+{% endif %}
