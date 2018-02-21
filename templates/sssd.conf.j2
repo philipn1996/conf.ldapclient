@@ -19,7 +19,7 @@ id_provider = ldap
 chpass_provider = ldap
 
 ldap_uri = {% for item in ldap-server %} {{item}}, {% endfor %}
-ldap_search_base = {% ldap_search_base %}
+ldap_search_base = {{ ldap_search_base }}
 ldap_id_use_start_tls = false
 
 pwd_expiration_warning = 30
