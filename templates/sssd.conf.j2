@@ -18,7 +18,8 @@ auth_provider = ldap
 id_provider = ldap
 chpass_provider = ldap
 
-ldap_uri = {% for item in ldap-server %} {{item}}, {% endfor %}
+ldap_uri = {% for item in ldap_server %} {{item}}, {% endfor %}
+
 ldap_search_base = {{ ldap_search_base }}
 ldap_id_use_start_tls = false
 
