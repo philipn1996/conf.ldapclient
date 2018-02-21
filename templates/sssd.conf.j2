@@ -24,6 +24,6 @@ ldap_search_base = {{ ldap_search_base }}
 ldap_id_use_start_tls = false
 
 pwd_expiration_warning = 30
-{% if shadow %}
+{% if shadow is defined %}
 ldap_pwd_policy = shadow
 {% endif %}
