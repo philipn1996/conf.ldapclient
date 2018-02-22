@@ -15,7 +15,20 @@
 - name: setup sssd.conf
   template:
     src: sssd.conf.j2
-    dest: /etc/sssd.conf
+    dest: /etc/sssd/sssd.conf
     owner: root
     group: root
     mode: 0600
+- name: setup openldap
+  template:
+    src: ldap.conf.j2
+    dest: /etc/openldap/ldap.conf
+    owner: root
+    group: root
+    mode: 0644
+  copy:
+    src: files/ldap_all.cert
+    dest: /etc/openldap/all.cert
+    owner: root
+    group: root
+    mode: 644
