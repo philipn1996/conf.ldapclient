@@ -26,6 +26,7 @@
     owner: root
     group: root
     mode: 0644
+- name: Install ldap-certs
   copy:
     src: files/ldap_all.cert
     dest: /etc/openldap/all.cert
