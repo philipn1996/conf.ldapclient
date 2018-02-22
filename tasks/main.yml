@@ -19,6 +19,7 @@
     owner: root
     group: root
     mode: 0600
+  notify: restart sssd
 - name: setup openldap
   template:
     src: ldap.conf.j2
