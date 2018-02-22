@@ -3,7 +3,7 @@
 # This file should be world readable but not world writable.
 
 BASE    {{ldap_search_base}}
-URI     {% for item in ldap_server %} {{item}} {{ "," if not loop.last }} {% endfor %}
+URI     {{ ldap_server | join(',') }}
  
 SIZELIMIT       10000
 #TIMELIMIT      15
