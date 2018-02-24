@@ -34,3 +34,33 @@
     owner: root
     group: root
     mode: 644
+- name: Allow ldap-users to login..
+  pamd:
+    name: system-auth
+    type: auth
+    control: sufficient
+    module_path: pam_unix.so
+    state: before  
+    new_type: auth
+    new_control: sufficient
+    new_module_path: pam_sss.so
+    module_arguments: forward_pass
+- name: part2
+    name: system-auth
+    type: account
+    control: required
+    module_path: pam_unix.so
+    state: before  
+    new_type: account
+    new_control: "[default=bad success=ok user_unknown=ignore authinfo_unavail=ignore]"
+    new_module_path: pam_sss.so
+- name: part3
+    pamd:
+    name: system-auth
+    type: session
+    control: required
+    module_path: pam_unix.so
+    state: after
+    new_type: session
+    new_control: optional
+    new_module_path: pam_sss.so
