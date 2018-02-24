@@ -46,6 +46,7 @@
     new_module_path: pam_sss.so
     module_arguments: forward_pass
 - name: part2
+  pamd:
     name: system-auth
     type: account
     control: required
@@ -55,7 +56,7 @@
     new_control: "[default=bad success=ok user_unknown=ignore authinfo_unavail=ignore]"
     new_module_path: pam_sss.so
 - name: part3
-    pamd:
+  pamd:
     name: system-auth
     type: session
     control: required
