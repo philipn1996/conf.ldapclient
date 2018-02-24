@@ -1,6 +1,6 @@
 ---
 - name: Install packets
-  yum: name={{ item }} state=present
+  package: name={{ item }} state=present
   with_items:
     - sssd-ldap
 
