@@ -45,7 +45,7 @@
     new_control: sufficient
     new_module_path: pam_sss.so
     module_arguments: forward_pass
-  with_items: "{{ pam-services }}"
+  with_items: "{{ pam_services }}"
 - name: part2
   pamd:
     name: system-auth

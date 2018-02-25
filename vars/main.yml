@@ -1,2 +1,2 @@
 ---
-pam-services: ['system-auth', 'password-auth']
+pam_services: ['system-auth', 'password-auth']
