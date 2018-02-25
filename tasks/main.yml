@@ -48,7 +48,7 @@
   with_items: "{{ pam_services }}"
 - name: part2
   pamd:
-    name: system-auth
+    name: "{{ item }}"
     type: account
     control: required
     module_path: pam_unix.so
@@ -59,7 +59,7 @@
   with_items: "{{ pam_services }}"
 - name: part3
   pamd:
-    name: system-auth
+    name: "{{ item }}"
     type: session
     control: required
     module_path: pam_unix.so
