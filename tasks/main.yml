@@ -63,7 +63,7 @@
     type: session
     control: required
     module_path: pam_unix.so
-    state: after
+    state: before
     new_type: session
     new_control: optional
     new_module_path: pam_sss.so
