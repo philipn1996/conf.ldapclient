@@ -1,0 +1,7 @@
+alaxy_info:
+  author: Philip
+  description: Setup ldap authentication using sssd
+  platforms:
+    - name: Fedora
+      versions:
+        - 27
