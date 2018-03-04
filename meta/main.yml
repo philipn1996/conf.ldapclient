@@ -1,4 +1,4 @@
-alaxy_info:
+galaxy_info:
   author: Philip
   description: Setup ldap authentication using sssd
   platforms:
