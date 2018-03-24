@@ -33,14 +33,14 @@
     dest: "{{cert_dest}}"
     owner: root
     group: root
-    mode: 644
+    mode: 0644
 - name: Allow ldap-users to login..
   pamd:
     name: "{{item}}"
     type: auth
     control: sufficient
     module_path: pam_unix.so
-    state: before  
+    state: before
     new_type: auth
     new_control: sufficient
     new_module_path: pam_sss.so
@@ -52,7 +52,7 @@
     type: account
     control: required
     module_path: pam_unix.so
-    state: before  
+    state: before
     new_type: account
     new_control: "[default=bad success=ok user_unknown=ignore authinfo_unavail=ignore]"
     new_module_path: pam_sss.so
