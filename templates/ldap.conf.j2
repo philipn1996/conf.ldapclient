@@ -5,7 +5,7 @@
 BASE    {{ldap_search_base}}
 URI     {{ ldap_server | join(' ') }}
 # The default timeout is sth like 2 mins.
-{% if network-timeout is defined %}NETWORK_TIMEOUT    {{network-timeout}}{% endif %}
+{% if network_timeout is defined %}NETWORK_TIMEOUT    {{network_timeout}}{% endif %}
 
 SIZELIMIT       10000
 #TIMELIMIT      15
