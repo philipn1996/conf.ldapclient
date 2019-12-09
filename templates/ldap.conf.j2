@@ -1,10 +1,12 @@
-{{ansible_managed}}
+{{ansible_managed|comment}}
 # See ldap.conf(5) for details
 # This file should be world readable but not world writable.
 
 BASE    {{ldap_search_base}}
-URI     {{ ldap_server | join(',') }}
- 
+URI     {{ ldap_server | join(' ') }}
+# The default timeout is sth like 2 mins.
+{% if network-timeout is defined %}NETWORK_TIMEOUT    {{network-timeout}}{% endif %}
+
 SIZELIMIT       10000
 #TIMELIMIT      15
 #DEREF          never

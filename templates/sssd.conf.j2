@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 # The System Security Services Daemon provides some advantages over direct ldap-authentication.
 
 [sssd]
@@ -18,7 +18,7 @@ auth_provider = ldap
 id_provider = ldap
 chpass_provider = ldap
 
-ldap_uri = {% for item in ldap_server %} {{item}}, {% endfor %}
+ldap_uri = {{ ldap_server | join(',') }}
 
 ldap_search_base = {{ ldap_search_base }}
 ldap_id_use_start_tls = false
