@@ -68,3 +68,15 @@
     new_control: optional
     new_module_path: pam_sss.so
   with_items: "{{ pam_services }}"
+- name: permit ldap passwd change via passwd
+  pamd:
+    name: "{{ item }}"
+    type: password
+    control: required
+    module_path: pam_deny.so
+    state: before
+    new_type: password
+    new_control: sufficient
+    new_module_path: pam_sss.so
+    module_arguments: use_authtok
+  with_items: "{{ pam_services }}"
